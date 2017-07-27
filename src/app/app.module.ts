@@ -5,18 +5,32 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { Tabs } from './tabs/tabs.component';
-import { Tab } from './tab/tab.component';
+import { Tab  } from './tab/tab.component';
+import { RouterModule } from "@angular/router";
 
 @NgModule({
   imports: [
     BrowserModule,
     FormsModule,
+    RouterModule.forRoot([
+      {
+        path: '',
+        pathMatch: 'full',
+        redirectTo: 'tab'
+
+      },
+      {
+        path: 'tab',
+        component: Tab,
+      },
+
+    ]),
     HttpModule
   ],
   declarations: [
     AppComponent,
     Tabs,
-    Tab
+    Tab,
   ],
 
   providers: [],

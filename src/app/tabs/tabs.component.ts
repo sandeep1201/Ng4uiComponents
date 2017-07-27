@@ -1,12 +1,11 @@
 import { Component, ContentChildren, QueryList, AfterContentInit } from '@angular/core';
-import {  } from "../tab/";
 import { Tab } from "../tab/tab.component";
 
 
 @Component({
   selector: 'tabs',
   templateUrl: './tabs.component.html',
-  styleUrls: ['./tabs.component.css']
+  styleUrls: ['./tabs.component.scss']
 })
 export class Tabs implements AfterContentInit{
 
