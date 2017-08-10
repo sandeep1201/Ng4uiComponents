@@ -6,7 +6,11 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { Tab  } from './shared/tab/tab.component';
 import { Tabs  } from './shared/tabs/tabs.component';
+import { ParentComponent } from './ParentToChild/parent/parent.component';
+import { ChildComponent } from './ParentToChild/child/child.component';
 import { RouterModule } from "@angular/router";
+import { TabsimplementationComponent } from './shared/tabsimplementation/tabsimplementation.component';
+
 
 @NgModule({
   imports: [
@@ -15,22 +19,29 @@ import { RouterModule } from "@angular/router";
     RouterModule.forRoot([
       {
         path: '',
-        pathMatch: 'full',
-        redirectTo: 'tab'
-
+        pathMatch:'full',
+        component: TabsimplementationComponent,
       },
       {
         path: 'tab',
-        component: Tab,
+        component: TabsimplementationComponent,
+      },
+      {
+        path: 'parent',
+        pathMatch:'full',
+        component: ParentComponent,
       },
 
-    ]),
+    ], {enableTracing: true}),
     HttpModule
   ],
   declarations: [
     AppComponent,
     Tabs,
     Tab,
+    ParentComponent,
+    ChildComponent,
+    TabsimplementationComponent,
   ],
 
   providers: [],
