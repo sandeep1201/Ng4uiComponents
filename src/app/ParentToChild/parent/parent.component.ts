@@ -2,7 +2,14 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-parent',
-  template: `<app-child *ngFor = "let item of Items" [data] = "item"></app-child>
+  template: `
+
+<div *ngIf="elementShow">Show this div conditionally</div>
+            <app-child 
+             (elementToggled)="elementToggleHandler($event)"></app-child>
+             <app-child2 
+             *ngFor = "let item of Items" 
+             [data] = "item"></app-child2>
 `
 })
 export class ParentComponent {
@@ -14,4 +21,11 @@ export class ParentComponent {
     { name: 'MA' },
     { name: 'Maryland' }
   ];
+  elementShow:boolean;
+
+  elementToggleHandler(e: boolean) {
+      this.elementShow = e;
+
+  }
+
 }

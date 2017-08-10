@@ -10,6 +10,7 @@ import { ParentComponent } from './ParentToChild/parent/parent.component';
 import { ChildComponent } from './ParentToChild/child/child.component';
 import { RouterModule } from "@angular/router";
 import { TabsimplementationComponent } from './shared/tabsimplementation/tabsimplementation.component';
+import { Child2Component } from './ParentToChild/child2/child2.component';
 
 
 @NgModule({
@@ -42,6 +43,7 @@ import { TabsimplementationComponent } from './shared/tabsimplementation/tabsimp
     ParentComponent,
     ChildComponent,
     TabsimplementationComponent,
+    Child2Component,
   ],
 
   providers: [],

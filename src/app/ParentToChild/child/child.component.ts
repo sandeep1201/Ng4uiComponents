@@ -1,21 +1,23 @@
-import { Component, OnInit, Input } from '@angular/core';
+import {Component, OnInit, Output, EventEmitter} from '@angular/core';
 
 @Component({
   selector: 'app-child',
   template: `<p>
- {{data.name}}
+ <button (click) = "toggleElement()">Toggle Parent from Child</button>
 </p>`
 })
 export class ChildComponent implements OnInit {
+  @Output() elementToggled = new EventEmitter;
 
-  @Input() data: any;
+  elementShow: boolean = false;
 
   constructor() {
-    debugger;
   }
+  toggleElement() {
+    this.elementShow = !this.elementShow;
+    this.elementToggled.emit(this.elementShow);
+    }
 
-  ngOnInit() {
-    console.log(this.data);
-  }
+  ngOnInit() {}
 
 }
