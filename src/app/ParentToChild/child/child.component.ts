@@ -1,23 +1,34 @@
-import {Component, OnInit, Output, EventEmitter} from '@angular/core';
+import {Component, OnInit, Output, EventEmitter, OnDestroy} from '@angular/core';
+import { CounterService } from '../../services/counter.service';
+import {Subscription} from "rxjs";
 
 @Component({
   selector: 'app-child',
-  template: `<p>
- <button (click) = "toggleElement()">Toggle Parent from Child</button>
-</p>`
+  templateUrl: './child.component.html',
+  providers: [CounterService]
 })
-export class ChildComponent implements OnInit {
+export class ChildComponent implements OnInit, OnDestroy {
   @Output() elementToggled = new EventEmitter;
 
   elementShow: boolean = false;
+  countSub: Subscription;
 
-  constructor() {
+  constructor( private counterService: CounterService) {
   }
   toggleElement() {
     this.elementShow = !this.elementShow;
     this.elementToggled.emit(this.elementShow);
     }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.countSub = this.counterService.count$.subscribe(
+      value => {
+        console.log('global counter value changed: ', value);
+      }
+    )
+  }
+  ngOnDestroy() {
+    this.countSub.unsubscribe();
+  }
 
 }

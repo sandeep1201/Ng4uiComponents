@@ -11,6 +11,8 @@ import { ChildComponent } from './ParentToChild/child/child.component';
 import { RouterModule } from "@angular/router";
 import { TabsimplementationComponent } from './shared/tabsimplementation/tabsimplementation.component';
 import { Child2Component } from './ParentToChild/child2/child2.component';
+import {CounterService} from "./services/counter.service";
+import { DataDisplayComponent } from './ParentToChild/data-display/data-display.component';
 
 
 @NgModule({
@@ -44,6 +46,7 @@ import { Child2Component } from './ParentToChild/child2/child2.component';
     ChildComponent,
     TabsimplementationComponent,
     Child2Component,
+    DataDisplayComponent,
   ],
 
   providers: [],

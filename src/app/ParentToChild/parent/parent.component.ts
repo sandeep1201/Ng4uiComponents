@@ -7,9 +7,10 @@ import { Component } from '@angular/core';
 <div *ngIf="elementShow">Show this div conditionally</div>
             <app-child 
              (elementToggled)="elementToggleHandler($event)"></app-child>
-             <app-child2 
+             <app-child2 ></app-child2>
+             <app-data-display 
              *ngFor = "let item of Items" 
-             [data] = "item"></app-child2>
+             [data] = "item"></app-data-display>
 `
 })
 export class ParentComponent {

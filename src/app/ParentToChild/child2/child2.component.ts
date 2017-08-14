@@ -1,18 +1,25 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { CounterService } from '../../services/counter.service';
+import {Subscription} from "rxjs";
 
 @Component({
   selector: 'app-child2',
-  template:`<p>{{data.name}}</p>`,
-  styleUrls: ['./child2.component.css']
+  templateUrl:'./child2.component.html',
+  styleUrls: ['./child2.component.css'],
+  providers: [CounterService]
 })
 export class Child2Component implements OnInit {
 
-   @Input() data: any;
+   countSub: Subscription;
 
-  constructor() { }
+  constructor( private counterService: CounterService) { }
 
   ngOnInit() {
-    console.log(this.data);
+     this.countSub = this.counterService.count$.subscribe(
+      value => {
+        console.log('global counter value changed: ', value);
+      }
+    )
   }
 
 }
