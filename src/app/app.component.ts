@@ -8,9 +8,7 @@ import {Observable} from "rxjs";
 })
 export class AppComponent implements OnInit {
   name: string;
-  minHeight: string;
   title: string;
-  private _initWinHeight:number =0;
   constructor() {
     this.name = 'Angular2'
   }

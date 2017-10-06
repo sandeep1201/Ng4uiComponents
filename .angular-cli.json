@@ -19,7 +19,8 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "styles.css"
+        "styles.css",
+        "../node_modules/typeface-righteous"
       ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",
@@ -55,3 +56,4 @@
     "component": {}
   }
 }
+
